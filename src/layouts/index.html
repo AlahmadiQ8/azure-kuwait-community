@@ -2,7 +2,7 @@
   {{ if .Params.image }}
   {{ $image := resources.Get .Params.image }}
   {{ $image := $image.Process "jpeg" }}
-  {{ $image := $image.Resize "webp q90" }}
+  {{ $image := $image.Process"webp drawing" }}
     <div class="banner">
       <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="banner-image">
     </div>
