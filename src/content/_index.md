@@ -6,4 +6,8 @@ image: "/banner.png"
 
 ## Upcoming Events
 
+{{< event-list sort="asc" upcoming="true" >}}
+
 ## Past Events
+
+{{< event-list sort="asc" upcoming="false" >}}

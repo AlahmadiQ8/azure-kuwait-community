@@ -1,0 +1,23 @@
+{{/* Single event item partial - Compact row card */}}
+{{/* Usage: {{ partial "event-item.html" . }} */}}
+
+<article class="event-item event-row-card">
+  <div class="event-thumbnail">
+    {{ if .Params.image }}
+      <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+    {{ else }}
+      <div class="event-placeholder">
+        <span class="event-icon">�</span>
+      </div>
+    {{ end }}
+  </div>
+  
+  <div class="event-content">
+    <h3 class="event-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+    <time class="event-date" datetime="{{ .Params.date | dateFormat "2006-01-02" }}">
+      {{ .Params.date | dateFormat "January 2, 2006" }}
+    </time>
+  </div>
+</article>

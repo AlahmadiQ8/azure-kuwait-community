@@ -1,0 +1,37 @@
+{{/* Events listing shortcode with parameters */}}
+{{/* Usage: {{< event-list sort="asc" upcoming="true" >}} */}}
+
+{{ $events := where .Site.RegularPages "Section" "events" }}
+{{ $sortOrder := .Get "sort" | default "desc" }}
+{{ $upcomingOnly := .Get "upcoming" | default "false" }}
+{{ $now := now }}
+
+{{/* Sort all events first */}}
+{{ $sortedEvents := sort $events ".Params.date" $sortOrder }}
+
+<div class="events-list">
+  {{ $hasEvents := false }}
+  {{ range $sortedEvents }}
+    {{ $eventDate := time .Params.date }}
+    {{ $isUpcoming := ge $eventDate.Unix $now.Unix }}
+    
+
+    {{/* Determine if the event should be shown based on upcomingOnly parameter */}}
+
+    {{ $shouldShow := false }}
+    {{ if eq $upcomingOnly "true" }}
+      {{ $shouldShow = $isUpcoming }}
+    {{ else }}
+      {{ $shouldShow = not $isUpcoming }}
+    {{ end }}
+    
+    {{ if $shouldShow }}
+      {{ $hasEvents = true }}
+      {{ partial "event-item.html" . }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if not $hasEvents }}
+    <p class="no-events">No events found.</p>
+  {{ end }}
+</div>
