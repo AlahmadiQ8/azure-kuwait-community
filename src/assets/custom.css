@@ -1,3 +1,4 @@
+
 .event-row-card {
   display: flex;
   align-items: center;
@@ -7,24 +8,37 @@
   border-radius: 8px;
   margin-bottom: 0.5rem;
   transition: box-shadow 0.2s ease;
+  position: relative;
 }
 
 .event-row-card:hover {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+
 .event-thumbnail {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 6px;
+  /* Remove fixed width/height, use absolute positioning to fill padding */
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(60px + 2rem); /* 60px + 2*1rem padding */
+  height: calc(100%);
+  border-radius: 8px 0 0 8px;
   overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: #fff;
+  z-index: 1;
 }
 
 .event-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .event-placeholder {
@@ -40,6 +54,7 @@
 .event-content {
   flex: 1;
   min-width: 0;
+  margin-left: calc(60px + 2rem); /* Make space for the thumbnail */
 }
 
 .event-title {
