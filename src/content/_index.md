@@ -4,3 +4,6 @@ description: "A community‑run group hosting talks on Azure, Data & AI in Kuwai
 image: "/banner.png"
 ---
 
+## Upcoming Events
+
+## Past Events
