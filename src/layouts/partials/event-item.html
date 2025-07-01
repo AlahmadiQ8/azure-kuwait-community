@@ -4,7 +4,7 @@
 <article class="event-item event-row-card">
   <div class="event-thumbnail">
     {{ if .Params.image }}
-      <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+      <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
     {{ else }}
       <div class="event-placeholder">
         <span class="event-icon">�</span>

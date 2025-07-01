@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ if .Params.image }}
     <div class="banner">
-      <img src="{{ .Params.image }}" alt="{{ .Title }}" class="banner-image">
+      <img src="{{ .Params.image | relURL  }}" alt="{{ .Title }}" class="banner-image">
     </div>
   {{ end }}
   {{ .Content }}
