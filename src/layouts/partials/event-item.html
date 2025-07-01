@@ -4,7 +4,10 @@
 <article class="event-item event-row-card">
   <div class="event-thumbnail">
     {{ if .Params.image }}
-      <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" loading="lazy">
+      {{ $image := resources.Get .Params.image }}
+      {{ $image := $image.Process "jpeg" }}
+      {{ $image := $image.Process "webp drawing" }}
+      <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
     {{ else }}
       <div class="event-placeholder">
         <span class="event-icon">�</span>
