@@ -1,0 +1,13 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'My New Hugo Site'
+theme = 'hugo-simple'
+
+[params]
+favicon = '/favicon.ico'
+dateFormat = 2006-01-02
+hideRSSLink = true
+
+[params.author]
+name = 'Mohammad Asad Alahmadi'
+email = 'mmohammadq8@outlook.com'
