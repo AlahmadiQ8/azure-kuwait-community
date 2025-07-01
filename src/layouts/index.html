@@ -1,7 +1,10 @@
 {{ define "main" }}
   {{ if .Params.image }}
+  {{ $image := resources.Get .Params.image }}
+  {{ $image := $image.Process "jpeg" }}
+  {{ $image := $image.Resize "600x webp q80" }}
     <div class="banner">
-      <img src="{{ .Params.image | relURL  }}" alt="{{ .Title }}" class="banner-image">
+      <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="banner-image">
     </div>
   {{ end }}
   {{ .Content }}

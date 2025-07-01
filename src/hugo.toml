@@ -5,7 +5,7 @@ theme = 'hugo-simple'
 buildFuture = true
 
 [params]
-favicon = '/favicon.ico'
+favicon = 'favicon.ico'
 dateFormat = '2006-01-02'
 hideRSSLink = true
 hideMadeWithLine = true
