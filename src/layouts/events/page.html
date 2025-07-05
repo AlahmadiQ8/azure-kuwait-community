@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <div>
+    <!-- Event Banner -->
+    {{ if .Params.image }}
+    {{ $image := resources.Get .Params.image }}
+    {{ $image := $image.Process "jpeg" }}
+    {{ $image := $image.Process "webp drawing" }}
+      <div class="event-banner">
+        <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="event-banner-image">
+        <div class="event-banner-overlay">
+          <h1 class="event-title">{{ .Title }}</h1>
+        </div>
+      </div>
+    {{ else }}
+      <div class="event-header">
+        <h1 class="event-title">{{ .Title }}</h1>
+      </div>
+    {{ end }}
+
+    <!-- Event Details -->
+    <div class="event-meta">
+      <div class="event-info">
+        {{ if .Params.date }}
+        <div class="event-date">
+          <strong>Date:</strong> 
+          <time datetime="{{ .Params.date | dateFormat "2006-01-02" }}">
+            {{ .Params.date | dateFormat "January 2, 2006" }}
+          </time>
+        </div>
+        {{ end }}
+        
+        {{ if .Params.location }}
+        <div class="event-location">
+          <strong>Location:</strong> {{ .Params.location | markdownify }}
+        </div>
+        {{ end }}
+      </div>
+    </div>
+
+    <!-- Event Content -->
+    <div>
+      {{ .Content }}
+    </div>
+</div>
+{{ end }}

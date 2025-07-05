@@ -1,0 +1,11 @@
+
+<nav>{{- partial "nav.html" . -}}</nav>
+{{ $shouldRenderTitle := not (and (eq .Kind "page") (eq .Section "events")) }}
+{{- with .Title }}
+  {{- if $shouldRenderTitle }}
+    <h1>{{ . }}</h1>
+  {{- end }}
+{{- end }}
+{{ with .Description }}
+  <p>{{ . }}</p>
+{{ end }}
