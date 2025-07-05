@@ -4,6 +4,7 @@ date: 2025-08-15
 slug: "new-azure-ai-may-2025"
 location: "[Alrayya - Microsoft Office, Kuwait City](https://google.com)"
 image: "banner.png"
+rsvp_link: https://google.com
 ---
 
 Intro to Azure AI 

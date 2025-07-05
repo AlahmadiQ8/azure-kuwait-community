@@ -21,7 +21,7 @@
     <div class="event-meta">
       <div class="event-info">
         {{ if .Params.date }}
-        <div class="event-date">
+        <div class="event-info-item">
           <strong>Date:</strong> 
           <time datetime="{{ .Params.date | dateFormat "2006-01-02" }}">
             {{ .Params.date | dateFormat "January 2, 2006" }}
@@ -30,9 +30,20 @@
         {{ end }}
         
         {{ if .Params.location }}
-        <div class="event-location">
+        <div class="event-info-item">
           <strong>Location:</strong> {{ .Params.location | markdownify }}
         </div>
+        {{ end }}
+
+        {{ if and .Params.rsvp_link .Params.date }}
+        {{ $now := now }}
+        {{ $eventDate := time .Params.date }}
+        {{ $isUpcoming := ge $eventDate.Unix $now.Unix }}
+        {{ if $isUpcoming }}
+        <div class="event-info-item">
+          <strong>RSVP:</strong> {{ .Params.rsvp_link | markdownify }}
+        </div>
+        {{ end }}
         {{ end }}
       </div>
     </div>

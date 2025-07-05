@@ -68,7 +68,7 @@
   text-decoration: underline;
 }
 
-.event-date {
+.event-info-item {
   font-size: 0.875rem;
   margin: 0;
 }
@@ -134,14 +134,12 @@
   gap: 1rem;
 }
 
-.event-date,
-.event-location {
+.event-info-item {
   font-size: 1.1rem;
   /* color: #333; */
 }
 
-.event-date strong,
-.event-location strong {
+.event-info-item strong {
   color: #007acc;
   margin-right: 0.5rem;
 }
@@ -168,8 +166,7 @@
     gap: 0.75rem;
   }
   
-  .event-date,
-  .event-location {
+  .event-info-item{
     font-size: 1rem;
   }
 }
