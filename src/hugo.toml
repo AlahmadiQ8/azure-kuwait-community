@@ -18,3 +18,8 @@ email = 'mmohammadq8@outlook.com'
 name = "Home"
 pageRef = "/"
 weight = 10
+
+[[menu.main]]
+name = "Events"
+pageRef = "/events"
+weight = 20

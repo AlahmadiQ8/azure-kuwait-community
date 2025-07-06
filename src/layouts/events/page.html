@@ -23,8 +23,8 @@
         {{ if .Params.date }}
         <div class="event-info-item">
           <strong>Date:</strong> 
-          <time datetime="{{ .Params.date | dateFormat "2006-01-02" }}">
-            {{ .Params.date | dateFormat "January 2, 2006" }}
+          <time class="event-date" datetime="{{ .Params.date | dateFormat "2006-01-02T15:04" }}">
+            {{ .Params.date | dateFormat "January 2, 2006 at 3:04 PM" }}
           </time>
         </div>
         {{ end }}
